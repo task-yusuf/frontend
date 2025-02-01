@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:3000/api/todos'
+const API_URL = 'http://backend:3000/api/todos'
 
 export const useTodoStore = defineStore('todo', {
   state: () => ({
