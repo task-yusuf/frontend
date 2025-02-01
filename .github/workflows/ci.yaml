@@ -60,7 +60,6 @@ jobs:
 
       - name: Update image tag in manifest
         run: |
-          cd manifest-repo
           echo $(ls -la)
           IMAGE_TAG=swr.tr-west-1.myhuaweicloud.com/task_organization/${{ github.event.repository.name }}:${{ github.run_id }} 
           FILE_PATH=${{ github.event.repository.name }}.yaml
@@ -69,7 +68,6 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          cd manifest-repo
           git config user.name "Batyray"
           git config user.email "Batyray@task.mail"
           git add ${{ github.event.repository.name }}.yaml
