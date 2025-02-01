@@ -62,7 +62,7 @@ jobs:
         run: |
           echo $(ls -la)
           IMAGE_TAG=swr.tr-west-1.myhuaweicloud.com/task_organization/${{ github.event.repository.name }}:${{ github.run_id }} 
-          FILE_PATH=${{ github.event.repository.name }}.yaml
+          FILE_PATH=manifest/${{ github.event.repository.name }}.yaml
           sed -i "s|image: .*|image: $IMAGE_TAG|g" $FILE_PATH
           echo "Updated image tag in $FILE_PATH to $IMAGE_TAG"
 
@@ -70,6 +70,6 @@ jobs:
         run: |
           git config user.name "Batyray"
           git config user.email "Batyray@task.mail"
-          git add ${{ github.event.repository.name }}.yaml
+          git add manifest/${{ github.event.repository.name }}.yaml
           git commit -m "Update image tag to ${{ github.run_id }}"
           git push origin main
