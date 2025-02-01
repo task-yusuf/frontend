@@ -76,4 +76,5 @@ jobs:
           git config user.email "cansizyusuf29@gmail.com"
           git add ${{ github.event.repository.name }}.yaml
           git commit -m "Update image tag to ${{ github.run_id }}"
-          git push origin main
+          https://${{ secrets.PAT_TOKEN }}@github.com/task-yusuf/manifest.git main
+
